@@ -56,7 +56,7 @@ public final class News {
      *  The URL image.
      */
     @Getter
-    private final String urlimage;
+    private final String urlImage;
 
     /**
      *  The Description.
@@ -82,7 +82,7 @@ public final class News {
      * @param source can't be null
      * @param author can't be null
      * @param url can be null
-     * @param urlimage can be null
+     * @param urlImage can be null
      * @param description can't be null
      * @param content can't be null
      * @param publishedAt can't be null
@@ -91,7 +91,7 @@ public final class News {
                 final String source,
                 final String author,
                 final String url,
-                final String urlimage,
+                final String urlImage,
                 final String description,
                 final String content,
                 final ZonedDateTime publishedAt) {
@@ -118,7 +118,7 @@ public final class News {
         this.id = LongHashFunction.xx().hashChars(title + "|" + source + "|" + author);
 
         this.url = url;
-        this.urlimage = urlimage;
+        this.urlImage = urlImage;
 
 
         if(description == null || description.length() < 3){
