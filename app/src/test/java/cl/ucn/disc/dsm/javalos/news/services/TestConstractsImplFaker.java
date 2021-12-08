@@ -8,21 +8,43 @@
  * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NON INFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  */
 
-package cl.ucn.disc.dsm.javalos.news;
+package cl.ucn.disc.dsm.javalos.news.services;
 
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.Test;
 
 import java.util.List;
 
+import cl.ucn.disc.dsm.javalos.news.model.News;
+import cl.ucn.disc.dsm.javalos.news.services.Contracts;
+import cl.ucn.disc.dsm.javalos.news.services.ContractsImplFaker;
+
 /**
- *  The contracts of The News Project
  *  @author José Ávalos-Guzmán
  */
-public interface Contracts {
+public class TestConstractsImplFaker {
 
     /**
-     *
-     * @return all the News in the backend ordered by publishedAt.
+     *  Testing the Constructor.
      */
-    List<News> retrieveNews();
+    @Test
+    public void testConstructor(){
 
+    }
+
+    /**
+     *  Testing the RetrieveNews.
+     */
+    @Test
+    public void testRetrieveNews(){
+
+        final Contracts contracts = new ContractsImplFaker();
+        Assertions.assertNotNull(contracts, "Contrats was null");
+
+        final int N = 10;
+        final List<News> listNews = contracts.retrieveNews(N);
+        Assertions.assertNotNull(listNews, "ListNews was null");
+        Assertions.assertEquals(N, listNews.size(), "Wrang number of elements");
+
+    }
 }
