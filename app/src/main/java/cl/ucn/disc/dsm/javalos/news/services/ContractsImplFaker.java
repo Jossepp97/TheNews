@@ -26,13 +26,11 @@ import cl.ucn.disc.dsm.javalos.news.model.News;
  */
 public class ContractsImplFaker implements Contracts{
 
-
-
     /**
      * @return all the News in the backend ordered by publishedAt.
      */
     @Override
-    public List<News> retrieveNews(int size){
+    public List<News> retrieveNews(final int size){
 
         //  Faker provider
         final Faker faker = new Faker();
@@ -49,7 +47,7 @@ public class ContractsImplFaker implements Contracts{
                     faker.internet().url(),
                     faker.internet().url(),
                     faker.backToTheFuture().quote(),
-                    faker.starTrek().villain(),
+                    faker.artist().name(),
                     ZonedDateTime.now(ZoneId.of("-4"))
             );
 
